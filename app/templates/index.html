@@ -1,0 +1,33 @@
+{% extends "bootstrap/base.html" %}
+
+{%block title %} hackRU 2017 {% endblock %}
+
+{% block head %}
+{{ super() }}
+
+{% endblock %}
+
+{% block styles %}
+{{ super () }}
+
+{% endblock %}
+
+{% block navbar %}
+
+<!-- This is the navigation bar that will be used by all the templates
+that inherit this template -->
+	<div class="container-fluid">
+		<nav class="navbar navbar-inverse">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="#">AskHer</a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		      <li class="active"><a href="#">Home</a></li>
+		      <li><a href="#">Search History</a></li>
+		    </ul>
+		  </div>
+		</nav>
+	</div>
+
+{% endblock %}
