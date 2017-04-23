@@ -1,4 +1,5 @@
 {% extends "bootstrap/base.html" %}
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/style.css')}}">
 
 {%block title %} hackRU 2017 {% endblock %}
 
@@ -16,7 +17,7 @@
 
 <!-- This is the navigation bar that will be used by all the templates
 that inherit this template -->
-	<div class="container-fluid">
+	<body date-spy="scroll" class="container" data-target=".navbar" data-offset="10">
 		<nav class="navbar navbar-inverse">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
@@ -28,6 +29,11 @@ that inherit this template -->
 		    </ul>
 		  </div>
 		</nav>
-	</div>
+	</body>
+
+
+{% endblock %}
+
+{% block content %}
 
 {% endblock %}

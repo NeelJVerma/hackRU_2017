@@ -25,7 +25,7 @@ mongo=PyMongo(app)
 
 @app.route('/index', methods=['GET','POST'])
 def home():
-	return render_template('index.html')
+	return render_template('front_page.html')
 
 
 
