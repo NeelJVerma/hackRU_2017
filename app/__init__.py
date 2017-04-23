@@ -38,12 +38,13 @@ def messages():
 			'user_number':request.form['From'],
 			'image':request.form.get('MediaU3rl0',None),
 			'city':request.form['FromCity'],
-			'zip_code':request.form['FromCity'],
+			'zip_code':request.form['FromZip'],
 			'country':request.form['FromCountry']
 		}
 	data = location_scrap('starbucks',request.form['FromCity'])
 	
 	mongo.db.askHer.insert_one(user_info)
+	mongo.db.companies.insert_one({user_info['city']:data})
 	return str(resp)
 
 
@@ -66,8 +67,8 @@ def location_scrap(business_name,loc):
                 # Returned places from a query are place summaries.
                 reviews = []
                 for review in place.details['reviews']:
-                        review_data = {"text":review["text"],"rating":review["rating"],"time":review["time"]}
+                        review_data = {"text":review["text"],"rating":str(review["rating"]),"time":review["time"]}
                         reviews.append(review_data)
-                place_data = (place.name,place.rating,reviews)
+                place_data = (place.name,str(place.rating),reviews)
                 data.append(place_data)
         return data
