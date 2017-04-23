@@ -10,5 +10,40 @@
 			</div>
 		</div>
 	</div>
+
+	
+	<div class="container">
+	<div class="row">
+	<div class="col-md-10">
+			 {% for data in BUSINESS_DATA %}
+			 	{% if (BUSINESS_DATA is defined) and BUSINESS_DATA %}
+			 	<table class="table">
+				 <tbody>
+				 	<tr class="warning">
+				 		<td><b>Business    </b></td>
+				 		<td>{{data[0]}}</td>
+				 	</tr>
+
+			      	<tr class="success">
+			        	<td><b>Avg-Rating    </b></td>
+			        	<td>{{data[1]}}</td>
+			      </tr>
+			      <tr class="active">
+			        	<td><b>Review    </b></td>
+			        	<td>{{data[2]}}</td>
+			      </tr>
+			      <tr class="info">
+			        	<td><b>Location    </b></td>
+			        	<td>{{data[3]}}</td>
+			      </tr>
+			    </tbody>
+			    </table>
+			    <hr>
+			 {%endif%}
+			{% endfor %}
+		  
+	</div>
+	</div>
+	</div>
 	
 {% endblock %}
