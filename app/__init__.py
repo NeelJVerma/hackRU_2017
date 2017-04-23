@@ -70,7 +70,12 @@ def messages():
 		# print(dict(BUSINESS_DATA))
 	else:
 		data = location_scrap('starbucks',user_info['city'])
-	
+		for each_data in data:
+			try:
+				temp_data=(each_data['business'],each_data['avg_rating'],each_data['text'],each_data['location'])
+				BUSINESS_DATA.append(temp_data)
+			except KeyError:
+				pass
 		mongo.db.askHer.insert_one(user_info)
 
 		#iterate through each item (which is a dictionary) of data
